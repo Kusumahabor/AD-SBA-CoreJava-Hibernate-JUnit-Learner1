@@ -10,6 +10,8 @@ import sba.sms.utils.CommandLine;
 import java.util.List;
 import java.util.Scanner;
 
+//import static sba.sms.utils.HibernateUtil.sessionFactory;
+
 /**
  * SBA Core Java Hibernate/Junit
  * Business Requirement:
@@ -36,7 +38,7 @@ public class App {
 
     public static void main(String[] args) {
 
-       CommandLine.addData();
+        CommandLine.addData();
 
         Scanner input = new Scanner(System.in);
         int userInput;

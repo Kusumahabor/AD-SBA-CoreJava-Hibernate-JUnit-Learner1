@@ -15,6 +15,39 @@ import java.util.Set;
  * of the relationship. Implement Lombok annotations to eliminate boilerplate code.
  */
 
-public class Course {
+// Declare Lombok annotations
+@Entity
+@Table(name = "course")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@RequiredArgsConstructor
+@ToString(exclude = "students")
 
+public class Course {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID")
+    private int id;
+
+    @Column(name = "Name", length = 50, nullable = false)
+    @NonNull
+    private String name;
+
+    @Column(name = "Instructor", length = 50, nullable = false)
+    @NonNull
+    private String instructor;
+
+    @ManyToMany(mappedBy = "courses", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private Set<Student> students;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Course course = (Course) o;
+        return id == course.id;
+        }
 }
+
