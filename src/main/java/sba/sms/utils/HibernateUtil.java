@@ -33,7 +33,7 @@ public class HibernateUtil {
      * in the 'resources' folder and returns a sessionFactory object.
      * @return
      */
-    private static SessionFactory buildSessionFactory()
+    public static SessionFactory buildSessionFactory()
     {
         try
         {
